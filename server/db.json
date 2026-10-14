@@ -1,5 +1,5 @@
 {
-  "dispatch-hubs": [
+  "charging-stations": [
     {
       "id": 1,
       "stationName": "Independencia Station",

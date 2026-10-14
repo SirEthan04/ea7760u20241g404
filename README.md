@@ -1,62 +1,131 @@
-# Ea7760u20241g404
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 22.1.7.
+# Tesla Supercharger Fleet & Battery Storage Platform
 
-## Development server
+## Description
 
-To start a local development server, run:
-Holaaaaaa
-Hola ola ola ola 
-ola 
-ola ola que pasa
+Tesla Supercharger Fleet & Battery Storage Platform is a web application developed with Angular for managing Tesla supercharger fleet and battery storage operations.
+
+The application allows users to visualize charging stations, monitor energy consumption, calculate available capacity, and register new charging sessions.
+
+## Technologies
+
+- Angular 22
+- TypeScript
+- Angular Material
+- Angular Signals
+- Angular Reactive Forms
+- RxJS
+- ngx-translate
+- JSON Server 0.17.4
+- Open Brewery DB API
+
+## Features
+
+- Display charging stations.
+- View charging sessions associated with each station.
+- Calculate total energy consumption.
+- Calculate available charging capacity.
+- Register new charging sessions.
+- Validate charging sessions against available station capacity.
+- Retrieve brewery information from the Open Brewery DB API.
+- Switch between English and Spanish.
+- Navigate using a responsive sidebar.
+- Display a custom page-not-found view.
+
+## Architecture
+
+The application follows a Domain-Driven Design-inspired architecture.
+
+### Bounded Contexts
+
+**Dispatches**
+
+Responsible for managing dispatch hubs, dispatch orders, and tonnage validation.
+
+**Breweries**
+
+Responsible for retrieving brewery information from the external Open Brewery DB API.
+
+**Shared**
+
+Contains reusable components such as the header, sidebar, footer, and page-not-found view.
+
+### Architectural Patterns
+
+- Entity
+- Resource
+- Assembler
+- Request
+- Service
+- API
+- Endpoint
+- Store
+
+Angular Signals are used for reactive state management.
+
+## Installation
+
+Install project dependencies:
+
 ```bash
-ng serve
+npm install
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Running the Mock API
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Start JSON Server:
 
 ```bash
-ng generate component component-name
+npx json-server --watch server/db.json --port 3000
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+The mock API will be available at:
+
+- http://localhost:3000/charging-stations
+- http://localhost:3000/vehicle-charges
+
+## Running the Angular Application
+
+Open a second terminal and execute:
 
 ```bash
-ng generate --help
+npx ng serve -o
 ```
 
-## Building
+The application will be available at:
 
-To build the project run:
+http://localhost:4200
 
-```bash
-ng build
-```
+## Application Routes
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+| Route | Description |
+|---|---|
+| `/home` | Displays charging stations and orders |
+| `/charges/new` | Registers a new charging session |
+| Other routes | Displays the page-not-found view |
 
-## Running unit tests
+## External API
 
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
+The application uses Open Brewery DB to retrieve breweries by type.
 
-```bash
-ng test
-```
+API documentation:
 
-## Running end-to-end tests
+https://vpic.nhtsa.dot.gov/api/
 
-For end-to-end (e2e) testing, run:
+## Internationalization
 
-```bash
-ng e2e
-```
+The application supports:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+- English (default)
+- Spanish
 
-## Additional Resources
+Translation resources are located in:
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+- `public/i18n/en.json`
+- `public/i18n/es.json`
+
+## Authorship
+
+Developed by Mateo Caldas Bravo
+
+Academic practice project.
