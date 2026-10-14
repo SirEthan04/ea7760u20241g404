@@ -1,0 +1,86 @@
+{
+  "dispatch-hubs": [
+    {
+      "id": 1,
+      "stationName": "Independencia Station",
+      "vehicleType": "car",
+      "maxGridKwCapacity": 100,
+      "stallsAvailable": 5,
+      "isActive": true,
+      "locationCoordinates": "40.7128, -74.0060"
+    },
+    {
+      "id": 2,
+      "stationName": "Independencia Station",
+      "vehicleType": "truck",
+      "maxGridKwCapacity": 100,
+      "stallsAvailable": 5,
+      "isActive": true,
+      "locationCoordinates": "40.7128, -74.0060"
+    },
+    {
+      "id": 3,
+      "stationName": "Independencia Station",
+      "vehicleType": "multipurpose",
+      "maxGridKwCapacity": 100,
+      "stallsAvailable": 5,
+      "isActive": true,
+      "locationCoordinates": "40.7128, -74.0060"
+    },
+    {
+      "id": 4,
+      "stationName": "Independencia Station",
+      "vehicleType": "motorcycle",
+      "maxGridKwCapacity": 100,
+      "stallsAvailable": 5,
+      "isActive": true,
+      "locationCoordinates": "40.7128, -74.0060"
+    }
+  ],
+  "Vehicle-charges": [
+    {
+      "id": 1,
+      "stationId": 1,
+      "vehicleType": "car",
+      "makeId": 1,
+      "makeName": "Martin",
+      "kwDemand": 10,
+      "chargingPortType": "Fast",
+      "isFastCharge": true,
+      "registeredAt": "numbercodeapiexample"
+    },
+    {
+      "id": 2,
+      "stationId": 1,
+      "vehicleType": "car",
+      "makeId": 1,
+      "makeName": "Martin",
+      "kwDemand": 10,
+      "chargingPortType": "Fast",
+      "isFastCharge": true,
+      "registeredAt": "numbercodeapiexample"
+    },
+    {
+      "id": 3,
+      "stationId": 1,
+      "vehicleType": "car",
+      "makeId": 1,
+      "makeName": "Martin",
+      "kwDemand": 10,
+      "chargingPortType": "Fast",
+      "isFastCharge": true,
+      "registeredAt": "numbercodeapiexample"
+    },
+    {
+      "id": 4,
+      "stationId": 1,
+      "vehicleType": "car",
+      "makeId": 1,
+      "makeName": "Martin",
+      "kwDemand": 10,
+      "chargingPortType": "Fast",
+      "isFastCharge": true,
+      "registeredAt": "numbercodeapiexample"
+    }
+  ]
+}
