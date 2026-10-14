@@ -127,5 +127,5 @@ Translation resources are located in:
 ## Authorship
 
 Developed by Mateo Caldas Bravo
-
+link GH: https://github.com/SirEthan04/ea7760u20241g404.git
 Academic practice project.
