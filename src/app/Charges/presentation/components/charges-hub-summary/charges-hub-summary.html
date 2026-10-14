@@ -1,0 +1,44 @@
+
+<mat-card class="hub-card">
+  <mat-card-header>
+    <mat-card-title>{{ hub().stationName }}</mat-card-title>
+    <mat-card-subtitle>
+      {{ hub().vehicleType }}
+    </mat-card-subtitle>
+  </mat-card-header>
+
+  <mat-card-content>
+    <h3>{{ 'charges-orders' | translate }}</h3>
+
+    @if (orders().length === 0) {
+    <p>{{ 'empty' | translate }}</p>
+    } @else {
+    @for (order of orders(); track order.id) {
+    <div class="order-row">
+      <span>{{ order.makeName }}</span>
+      <strong>
+        {{ order.kwDemand | number:'1.0-2' }} kW
+      </strong>
+    </div>
+    }
+    }
+  </mat-card-content>
+
+  <mat-card-footer>
+    <div class="indicators">
+      <div>
+        <span>{{ 'total-kw-demand' | translate }}</span>
+        <strong>
+          {{ totalKwDemand() | number:'1.0-2' }} kW
+        </strong>
+      </div>
+
+      <div>
+        <span>{{ 'available-kw-capacity' | translate }}</span>
+        <strong>
+          {{ availableKwCapacity() | number:'1.0-2' }} kW
+        </strong>
+      </div>
+    </div>
+  </mat-card-footer>
+</mat-card>

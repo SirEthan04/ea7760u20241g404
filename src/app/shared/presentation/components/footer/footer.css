@@ -1,0 +1,14 @@
+.footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 20px 32px;
+  background: var(--app-brand-color);
+  color: white;
+  font-size: 13px;
+}
+
+.status {
+  color: #a8e6a1;
+}

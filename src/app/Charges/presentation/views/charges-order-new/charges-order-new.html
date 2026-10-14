@@ -1,0 +1,150 @@
+
+<section class="form-container">
+  <h1>{{ 'new-charges-order' | translate }}</h1>
+
+  <p>{{ 'register-charges-order' | translate }}</p>
+
+  <mat-card>
+    <mat-card-content>
+      <form [formGroup]="form" (ngSubmit)="create()">
+
+        <!-- Vehicle Type -->
+        <mat-form-field appearance="outline">
+          <mat-label>
+            {{ 'vehicle-type' | translate }}
+          </mat-label>
+
+          <mat-select
+            formControlName="vehicleType"
+            [attr.aria-label]="'vehicle-type' | translate">
+
+            @for (hub of hubs(); track hub.id) {
+            <mat-option [value]="hub.vehicleType">
+              {{ hub.vehicleType }}
+            </mat-option>
+            }
+          </mat-select>
+
+          @if (
+          form.controls.vehicleType.hasError('required') &&
+          form.controls.vehicleType.touched
+          ) {
+          <mat-error>
+            {{ 'field-required' | translate }}
+          </mat-error>
+          }
+        </mat-form-field>
+
+        <!-- Vehicle Make -->
+        <mat-form-field appearance="outline">
+          <mat-label>
+            {{ 'vehicle-make' | translate }}
+          </mat-label>
+
+          <mat-select
+            formControlName="makeId"
+            [attr.aria-label]="'vehicle-make' | translate"
+            [disabled]="loadingMakes()">
+
+            @for (make of makes(); track make.makeId) {
+            <mat-option [value]="make.makeId">
+              {{ make.makeName }}
+            </mat-option>
+            }
+          </mat-select>
+
+          @if (
+          (form.controls.makeId.hasError('required') || form.controls.makeId.hasError('min')) &&
+          form.controls.makeId.touched
+          ) {
+          <mat-error>
+            {{ 'field-required' | translate }}
+          </mat-error>
+          }
+        </mat-form-field>
+
+        @if (loadingMakes()) {
+        <p role="status">
+          {{ 'loading' | translate }}
+        </p>
+        }
+
+        <!-- Charging Demand -->
+        <mat-form-field appearance="outline">
+          <mat-label>
+            {{ 'kw-demand' | translate }}
+          </mat-label>
+
+          <input
+            matInput
+            type="number"
+            min="0.01"
+            step="0.01"
+            formControlName="kwDemand"
+            [attr.aria-label]="'kw-demand' | translate">
+
+          @if (
+          form.controls.kwDemand.hasError('min') &&
+          form.controls.kwDemand.touched
+          ) {
+          <mat-error>
+            {{ 'kw-demand-positive' | translate }}
+          </mat-error>
+          }
+
+          @if (
+          form.controls.kwDemand.hasError('required') &&
+          form.controls.kwDemand.touched
+          ) {
+          <mat-error>
+            {{ 'field-required' | translate }}
+          </mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'charging-port-type' | translate }}</mat-label>
+          <input matInput formControlName="chargingPortType"
+            [attr.aria-label]="'charging-port-type' | translate">
+          @if (form.controls.chargingPortType.hasError('required') && form.controls.chargingPortType.touched) {
+          <mat-error>{{ 'field-required' | translate }}</mat-error>
+          }
+        </mat-form-field>
+
+        <mat-form-field appearance="outline">
+          <mat-label>{{ 'is-fast-charge' | translate }}</mat-label>
+          <mat-select formControlName="isFastCharge"
+            [attr.aria-label]="'is-fast-charge' | translate">
+            <mat-option [value]="true">{{ 'yes' | translate }}</mat-option>
+            <mat-option [value]="false">{{ 'no' | translate }}</mat-option>
+          </mat-select>
+        </mat-form-field>
+
+        <!-- Registration Errors -->
+        @if (errorMessage()) {
+        <p class="error" role="alert">
+          {{ errorMessage() | translate }}
+        </p>
+        }
+
+        <!-- Actions -->
+        <div class="actions">
+          <button
+            mat-button
+            type="button"
+            (click)="cancel()">
+            {{ 'cancel' | translate }}
+          </button>
+
+          <button
+            mat-flat-button
+            type="submit"
+            [disabled]="form.invalid || saving() || loadingMakes()">
+            {{ 'create' | translate }}
+          </button>
+        </div>
+
+      </form>
+    </mat-card-content>
+  </mat-card>
+</section>
